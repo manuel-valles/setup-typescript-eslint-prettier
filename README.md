@@ -1,2 +1,3 @@
-# setup-typescript-eslint-prettier.js
-Automate TypeScript, ESLint and Prettier in one go
+# Setup for Typescript Eslint and Prettier
+
+Automate TypeScript, ESLint and Prettier in one go.
