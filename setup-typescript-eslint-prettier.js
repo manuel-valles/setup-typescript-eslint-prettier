@@ -77,12 +77,7 @@ const packages = [
     fs.mkdirSync(vscodeDirPath);
   }
 
-  const workspacePath = path.join(
-    __dirname,
-
-    '.vscode',
-    'settings.json'
-  );
+  const workspacePath = path.join(__dirname, '.vscode', 'settings.json');
   let workspaceSettings = {};
 
   try {
@@ -111,6 +106,6 @@ const packages = [
 
   console.log(
     `Finished installing all dependencies and configuring files.
-     You may need to restart vscode for the eslint / prettier settings to take effect.`
+     You might need to restart VSCode for the ESLint & Prettier settings to take effect.`
   );
 })();
