@@ -1,7 +1,7 @@
-const fs = require('fs');
 const cp = require('child_process');
-const util = require('util');
+const fs = require('fs');
 const path = require('path');
+const util = require('util');
 
 const exec = util.promisify(cp.exec);
 const writeFile = util.promisify(fs.writeFile);
@@ -91,13 +91,13 @@ const packages = [
 
   await Promise.all([
     writeFile(workspacePath, JSON.stringify(workspaceSettings, null, 2)).then(
-      () => console.log('writing new .vscode/settings.json')
+      () => console.log('...Writing new .vscode/settings.json')
     ),
     writeFile('.eslintrc.json', JSON.stringify(eslintRc, null, 2)).then(() =>
-      console.log('writing new .eslintrc.json')
+      console.log('...Writing new .eslintrc.json')
     ),
     writeFile('.prettierrc.json', JSON.stringify(prettierRc, null, 2)).then(
-      () => console.log('writing new .prettierrc.json')
+      () => console.log('...Writing new .prettierrc.json')
     ),
     exec(`npm i -D ${packages.join(' ')}`)
       .then(({ stdout }) => console.log(stdout))
@@ -105,7 +105,6 @@ const packages = [
   ]);
 
   console.log(
-    `Finished installing all dependencies and configuring files.
-     You might need to restart VSCode for the ESLint & Prettier settings to take effect.`
+    'Finished installing all dependencies and configuring files.\nYou might need to restart VSCode for the ESLint & Prettier settings to take effect.'
   );
 })();
